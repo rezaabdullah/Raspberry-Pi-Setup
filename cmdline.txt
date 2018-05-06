@@ -1,0 +1,1 @@
+dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=PARTUUID=6d8f2ef7-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles ip=192.168.1.200::192.168.1.1:255.255.255.0:rpi:eth0:off
