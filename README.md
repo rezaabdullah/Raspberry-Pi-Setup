@@ -116,7 +116,7 @@ Raspberry Pi 3 has two serial ports, named `ttyS0` and `ttyAMA0`. By default, `t
 5. Enter `sudo cp -R * /usr/local/`
 6. Enter `node -v` and `npm -v` to check the version of the NodeJS and NPM
 7. Create new directory `NodeApp`
-8. Download NPM Modules:
-   i. `serialport`
-   ii. `modbus-serial`
-   iii. `firebase`
+8. Download NPM Modules:<br/>
+   i. `serialport`<br/>
+   ii. `modbus-serial`<br/>
+   iii. `firebase`<br/>
