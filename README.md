@@ -91,7 +91,7 @@
 3. Select **P2** (SSH) and **P3** (VNC)
 
 ## Set up Teamviewer
-1. **Download *Teamviewer Host* from Teamviewer Website**
+1. Download ***Teamviewer Host*** from Teamviewer Website
 2. Click the downloaded file and follow the instructions from the prompt window
 
 # Set up Serial Port (***Swap serial ports***)
