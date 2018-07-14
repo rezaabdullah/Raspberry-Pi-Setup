@@ -21,7 +21,7 @@
 8. Turn on the pi
 9. Open [putty](https://www.putty.org/)<br/>
    a. Connection Type: SSH<br/>
-   b. Host Name: raspberrypi.local
+   b. Host Name: **raspberrypi.local**
 10. Login as (User Name): `pi`
 11. Password: `raspberry`
 12. At Terminal:<br/>
@@ -60,6 +60,8 @@
 18. Turn on the pi
 19. Obtain Pi's IP address from the router
 20. Follow *9-14* from Method 1
+21. Set up desired IP address **(Refer to Set Up Static IP Address)**
+22. Once IP address is set **MAKE SURE TO REVERT BACK *cmdline.txt* TO ORIGINAL CONFIGURATION**
 
 #### **Method 3**
 **Requirements:**
@@ -76,6 +78,25 @@
 8. Turn on the pi
 9. Obtain Pi's IP address from the router
 10. Follow *9-14* from Method 1
+
+# Set Up Static IP Address
+1. At terminal enter `sudo nano /etc/dhcpcd.conf`
+2. At the end of the file add the following
+```
+# Set static IP address for Ethernet
+interface eth0
+
+static ip_address=192.168.0.2/24
+static routers=192.168.0.1
+static domain_name_servers=192.168.0.1
+
+# Set static IP address for WiFi
+interface wlan0
+
+static ip_address=192.168.0.2/24
+static routers=192.168.0.1
+static domain_name_servers=192.168.0.1
+```
 
 ## Enable VNC and SSH
 #### **Method 1 (Preferred)**
