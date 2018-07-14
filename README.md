@@ -81,7 +81,7 @@
 
 # Set Up Static IP Address
 1. At terminal enter `sudo nano /etc/dhcpcd.conf`
-2. At the end of the file add the following
+2. At the end of the file add the following<br/>
 ```
 # Set static IP address for Ethernet
 interface eth0
@@ -97,7 +97,7 @@ static ip_address=192.168.0.2/24
 static routers=192.168.0.1
 static domain_name_servers=192.168.0.1
 ```
-
+<br/>
 ## Enable VNC and SSH
 #### **Method 1 (Preferred)**
 1. Click Raspberry Pi icon
