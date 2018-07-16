@@ -1,6 +1,6 @@
 # Raspberry Pi Headless Setup Instructions
 **Following methods are verified in Windows 10**<br/>
-*Complexities of the methods are in ascending order.*
+*Complexities of the methods are in ascending order. However, Method 2 is **PREFERRED** due to security concern.*
 
 #### **Method 1**
 **Requirements:**
@@ -14,7 +14,7 @@
 1. [Download Raspberry Pi OS Image](https://www.raspberrypi.org/downloads/raspbian/)
 2. Extract the image file
 3. Burn image file to SD card with [Etcher](https://etcher.io/) or [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/)
-4. Once done, navigate to ***boot*** folder of the SD card
+4. Once done, navigate to ***boot*** folder of the SD card from computer
 5. Create an empty file with Notepad or similar text editor and name it ***ssh* (NO file extension i.e. file type).** *ssh file can also be downloaded from this repository.*
 6. Mount SD Card on Pi
 7. Connect ethernet cable to pi and laptop
@@ -42,26 +42,26 @@
 **Steps**<br/>
 1. Follow *1-5* from Method 1
 6. Find and open ***cmdline.txt*** with text editor. The file can be found inside ***boot*** folder
-7. Edit the file. Add `ip=192.168.1.200::192.168.1.1:255.255.255.0:rpi:eth0:off` at the end of the existing content of the file.<br/>
+7. Edit the file. Add `ip=192.168.1.200::192.168.1.1:255.255.255.0:rpi:eth0:off` at the end of the existing content of the file. This will create a LAN between RPi and the Computer where the IP address for the RPi will be `192.168.1.200`<br/>
    *The file can also be found here. Replace the original file with the file from this repository.*
 8. Disconnect computer from the internet
-9. Connect ethernet cable to Pi and computer
-10. Turn on the Pi
-11. Open ***Network & Internet Settings*** from Control Panel
-12. Click on the network name next to ***Connections:***
-13. Under ***Activity* select *Properties***<br/>
-14. Select ***Internet Protocol Version 4 (TCP/IPv4)***
-15. Select ***Properties***<br/>
-16. Select ***Use the following IP address***<br/>
+9. Take out SD card from the computer and insert it into the RPi.
+10. Connect ethernet cable to RPi and computer
+11. Turn on the RPi
+12. From the computer open ***Network & Internet Settings*** in Control Panel 
+13. Click on the network name next to ***Connections:***
+14. Under ***Activity* select *Properties***<br/>
+15. Select ***Internet Protocol Version 4 (TCP/IPv4)***
+16. Select ***Properties***<br/>
+17. Select ***Use the following IP address***<br/>
     a. IP address: `192.168.1.201`<br/>
     b. Subnet mask: `255.255.255.0`<br/>
     c. Default gateway: `192.168.1.1`<br/>
-17. Connect Pi to the router via ethernet cable
-18. Turn on the pi
-19. Obtain Pi's IP address from the router
-20. Follow *9-14* from Method 1
-21. Set up desired IP address **(Refer to Set Up Static IP Address)**
-22. Once IP address is set **MAKE SURE TO REVERT BACK *cmdline.txt* TO ORIGINAL CONFIGURATION**
+18. Open [putty](https://www.putty.org/)<br/>
+   a. Connection Type: SSH<br/>
+   b. Host Name: **192.168.1.200**
+19. Hit `Enter` or click `open`
+20. Follow steps *10-14* from Method 1
 
 #### **Method 3**
 **Requirements:**
@@ -82,16 +82,16 @@
 ## Set Up Static IP Address
 1. At terminal enter `sudo nano /etc/dhcpcd.conf`
 2. At the end of the file add the following **(Change the IP address according to the network configuration)**<br/>
-   i. Ethernet:<br/>
-      a. `interface eth0`<br/>
-      b. `static ip_address=192.168.0.2/24`<br/>
-      c. `static routers=192.168.0.1`<br/>
-      d. `static domain_name_servers=192.168.0.1`<br/>
-   ii. WiFi<br/>
-      a. `interface wlan0`<br/>
-      b. `static ip_address=192.168.0.2/24`<br/>
-      c. `static routers=192.168.0.1`<br/>
-      d. `static domain_name_servers=192.168.0.1`<br/>
+   **i. Ethernet:**<br/>
+        a. `interface eth0`<br/>
+        b. `static ip_address=192.168.0.2/24`<br/>
+        c. `static routers=192.168.0.1`<br/>
+        d. `static domain_name_servers=192.168.0.1`<br/>
+   **ii. WiFi**<br/>
+        a. `interface wlan0`<br/>
+        b. `static ip_address=192.168.0.2/24`<br/>
+        c. `static routers=192.168.0.1`<br/>
+        d. `static domain_name_servers=192.168.0.1`<br/>
 
 ## Enable VNC and SSH
 #### **Method 1 (Preferred)**
