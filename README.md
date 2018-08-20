@@ -1,4 +1,4 @@
-# Raspberry Pi Headless Setup Instructions
+#1. Raspberry Pi Headless Setup Instructions
 **Following methods are verified in Windows 10**<br/>
 *Complexities of the methods are in ascending order. However, Method 2 is* **PREFERRED** *due to security concern.*
 
@@ -79,7 +79,7 @@
 9. Obtain Pi's IP address from the router
 10. Follow *9-14* from Method 1
 
-## Set Up Static IP Address
+#2. Set Up Static IP Address
 1. At terminal enter `sudo nano /etc/dhcpcd.conf`
 2. At the end of the file add the following **(Change the IP address according to the network configuration)**<br/>
    **i. Ethernet:**<br/>
@@ -93,7 +93,7 @@
         c. `static routers=192.168.0.1`<br/>
         d. `static domain_name_servers=192.168.0.1`<br/>
 
-## Enable VNC and SSH
+#3. Enable VNC and SSH
 #### **Method 1 (Preferred)**
 1. Click Raspberry Pi icon
 2. Go to **Preferences**
@@ -106,11 +106,11 @@
 2. Select **5 Interfacing Options**
 3. Select **P2** (SSH) and **P3** (VNC)
 
-## Set up Teamviewer
+#4. Set up Teamviewer
 1. Download ***Teamviewer Host*** from Teamviewer Website
 2. Click the downloaded file and follow the instructions from the prompt window
 
-# Set up Serial Port (***Swap serial ports***)
+#5. Set up Serial Port (***Swap serial ports***)
 Raspberry Pi 3 has two serial ports, named `ttyS0` and `ttyAMA0`. By default, `ttyAMA0` is mapped for Bluetooth while `ttyS0` is reserved for hardware GPIO. Since `ttyAMA0` has higher performance and more reliable compared to `ttyS0`, it is necessary to swap the ports. The steps to swap the ports are listed below:
 1. Edit **config.txt:** At terminal enter `sudo nano /boot/config.txt`
 2. At the last line add `enable_uart=1` and save the file
@@ -124,7 +124,7 @@ Raspberry Pi 3 has two serial ports, named `ttyS0` and `ttyAMA0`. By default, `t
 10. Reboot RPi
 11. At terminal enter `ls -l /dev` : `serial0` should point to `ttyAMA0` while `serial1` should point to `ttyS0`
 
-# Set up NodeJS
+#6. Set up NodeJS
 1. Go to NodeJS Download page
 2. Select **ARMv7** (RPi-3) or **ARMv6** (RPi-Zero)
 3. Extract the downloaded file
