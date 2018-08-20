@@ -1,6 +1,6 @@
 # Raspberry Pi Headless Setup Instructions
 **Following methods are verified in Windows 10**<br/>
-*Complexities of the methods are in ascending order. However, Method 2 is **PREFERRED** due to security concern.*
+*Complexities of the methods are in ascending order. However, Method 2 is* **PREFERRED** *due to security concern.*
 
 #### **Method 1**
 **Requirements:**
